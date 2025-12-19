@@ -1,9 +1,11 @@
 #pragma once
-#include "array.h"
+
+#include "chararray.h"
+#include <string>
 
 class Octal {
 private:
-    Array<unsigned char> arr; 
+    CharArray arr; 
 
     size_t size() const;
 
@@ -16,7 +18,7 @@ public:
 
     Octal(const Octal& other);
 
-    static Octal* fromstring(const string& t);
+    static Octal* fromstring(const std::string& t);
     
     Octal* add(const Octal& other) const;
 
@@ -32,6 +34,6 @@ public:
 
     bool le(const Octal& other) const;
 
-    string tostring() const;
+    std::string tostring() const;
 
 };

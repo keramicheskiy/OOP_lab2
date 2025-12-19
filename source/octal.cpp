@@ -10,11 +10,11 @@ Octal::Octal(const unsigned char* a, size_t size) : arr(size) {
 Octal::Octal(const Octal& other) : arr(other.arr) {}
 
 
-Octal* Octal::fromstring(const string& t) {
+Octal* Octal::fromstring(const std::string& t) {
     unsigned char* s = new unsigned char[t.size()];
     for (int i = t.size() - 1; i >= 0; i--) {
         s[i] = t.at(t.size() - 1 - i);
-        if (s[i] < '0' || s[i] > '7') throw runtime_error("The string must consist of digits 0-7.");
+        if (s[i] < '0' || s[i] > '7') throw std::runtime_error("The string must consist of digits 0-7.");
     }
     int last = t.size() - 1;
     while (last > 0 && s[last] == '0')
@@ -54,7 +54,7 @@ Octal* Octal::add(const Octal& other) const {
 
 
 Octal* Octal::subtract(const Octal& other) const {
-    if (this->lt(other)) throw runtime_error("Cannot substract a larger number.");
+    if (this->lt(other)) throw std::runtime_error("Cannot substract a larger number.");
     else if (this->eq(other)) return fromstring("0");
     unsigned char* result = new unsigned char[this->size()];
     int debt = 0;
@@ -109,8 +109,8 @@ bool Octal::le(const Octal& other) const {
 }
 
 
-string Octal::tostring() const {
-    string res;
+std::string Octal::tostring() const {
+    std::string res;
     res.reserve(this->size());
     
     for (int i = this->size() - 1; i >= 0; i--) 
