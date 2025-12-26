@@ -69,7 +69,7 @@ TEST(OctalTest, LessThan) {
 }
 
 TEST(OctalTest, Equal) {
-        Octal* o1 = Octal::fromstring("1002");
+    Octal* o1 = Octal::fromstring("1002");
     Octal* o2 = Octal::fromstring("107");
     Octal* o3 = Octal::fromstring("1");
     Octal* o4 = Octal::fromstring("10000000");
